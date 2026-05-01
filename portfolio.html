@@ -1,1 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace Han Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Playfair+Display:wght@700&family=Urbanist:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* 1. 공통 스타일 */
+        :root {
+            --bg-color: #0d0d0d;       /* 배경색: 진한 검정 */
+            --card-bg: #151515;        /* 카드 배경: 약간 밝은 검정 */
+            --point-color: #deff9a;    /* 포인트: 라이트 라임 */
+            --text-main: #ffffff;      /* 메인 글자색 */
+            --text-sub: #888888;       /* 보조 글자색 */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            word-break: keep-all;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 120px 20px;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 2. 슬라이드 1: 메인 타이틀 */
+        .main-title {
+            border-bottom: 1px solid #222;
+        }
+        .main-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(60px, 8vw, 110px);
+            margin: 0;
+            line-height: 1.05;
+            letter-spacing: -2px;
+        }
+        .main-title h1 span {
+            color: var(--point-color);
+            display: block;
+        }
+        .main-title p {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 20px;
+            color: var(--text-sub);
+            margin-top: 40px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* 3. 슬라이드 2, 4: 텍스트 레이아웃 (사진 대체) */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: flex-start;
+        }
+        
+        .accent-box {
+            border: 1px solid var(--point-color);
+            padding: 60px 40px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+        }
+
+        .accent-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            color: var(--point-color);
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 48px;
+            margin-bottom: 40px;
+            color: var(--point-color);
+            font-weight: 600;
+        }
+
+        .desc-text {
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        .desc-text b {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        /* 4. 슬라이드 3: Expertise (4구역 카드) */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            padding: 50px;
+            border-radius: 12px;
+            border: 1px solid #222;
+            transition: all 0.4s ease;
+        }
+        .card:hover {
+            border-color: var(--point-color);
+            transform: translateY(-8px);
+        }
+        .card .icon {
+            font-size: 28px;
+            color: var(--point-color);
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+        .card h3 {
+            font-size: 24px;
+            margin: 0 0 15px 0;
+            font-family: 'Urbanist', sans-serif;
+        }
+        .card p {
+            color: var(--text-sub);
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* 5. 슬라이드 5: Contact */
+        .contact-box {
+            text-align: center;
+            background-color: var(--point-color);
+            color: #000;
+            padding: 100px 20px;
+            border-radius: 20px;
+        }
+        .contact-box h2 {
+            color: #000;
+            font-size: 64px;
+            margin-bottom: 10px;
+        }
+        .contact-box p {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-family: 'Urbanist', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .contact-info a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px solid #000;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        .footer {
+            margin-top: 60px;
+            font-size: 13px;
+            color: #444;
+            text-align: center;
+        }
+
+        /* 반응형 모바일 */
+        @media (max-width: 850px) {
+            .content-grid { grid-template-columns: 1fr; gap: 40px; }
+            .accent-box { height: 200px; padding: 30px; }
+            .accent-text { font-size: 30px; }
+            .grid-container { grid-template-columns: 1fr; }
+            .section { padding: 80px 20px; }
+            .contact-box h2 { font-size: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section main-title">
+        <p>New Media Design Portfolio</p>
+        <h1>Design with<br><span>Detail & Balance</span></h1>
+    </div>
+
+    <div class="section">
+        <div class="content-grid">
+            <div class="accent-box">
+                <div class="accent-text">"Visual<br>Sensitivity"</div>
+            </div>
+            <div class="text-box">
+                <h2>About Me</h2>
+                <div class="desc-text">
+                    <p>안녕하세요, <b>Grace Han</b>입니다.</p>
+                    <p>뉴미디어 디자인을 전공하며 디지털과 아날로그의 경계를 지우는 다양한 시각적 표현에 매료되었습니다. 단순히 예쁜 것을 넘어, 논리적인 구조와 감성적인 디테일이 조화를 이룰 때 비로소 완성도 높은 디자인이 탄생한다고 믿습니다.</p>
+                    <p>저는 화면 속에 갇혀 있던 평면적인 프로젝트에 활력을 불어넣으며, 남들이 쉽게 지나치는 <b>작은 디테일의 차이</b>가 브랜드의 격을 결정한다는 신념으로 모든 작업에 임하고 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Expertise</h2>
+        <div class="grid-container">
+            <div class="card">
+                <div class="icon">✒️</div>
+                <h3>Editorial & Visual</h3>
+                <p>정보의 우선순위를 고려한 그리드 설계와 브랜드 정체성을 일관성 있게 전달하는 비주얼 시스템을 구축합니다.</p>
+            </div>
+            <div class="card">
+                <div class="icon">💡</div>
+                <h3>UI/UX Strategy</h3>
+                <p>사용자의 여정을 데이터와 심리학 기반으로 분석하여, 최적의 사용성을 제공하는 인터페이스를 제안합니다.</p>
+            </div>
+            <div class="card">
+                <div class="icon">A</div>
+                <h3>Media Typography</h3>
+                <p>문자의 조형미를 실험하고 메시지의 시각적 함축도를 높여 시선을 사로잡는 타이포 아트를 작업합니다.</p>
+            </div>
+            <div class="card">
+                <div class="icon">&lt;/&gt;</div>
+                <h3>Web Publishing</h3>
+                <p>HTML/CSS를 활용해 디자인 의도가 웹 브라우저에서 100% 구현될 수 있도록 퍼블리싱 역량을 갖추었습니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="content-grid" style="direction: rtl;"> <div class="accent-box" style="direction: ltr;">
+                <div class="accent-text">"Everlasting<br>Value"</div>
+            </div>
+            <div class="text-box" style="direction: ltr;">
+                <h2>My Vision</h2>
+                <div class="desc-text">
+                    <p style="color:var(--point-color); font-weight: bold; font-size: 22px;">"지속 가능한 디자인의 가치"</p>
+                    <p>저는 찰나의 트렌드를 좇는 화려함보다는, 시간이 흘러도 본질을 잃지 않는 디자인의 힘을 믿습니다. 사용자에게 깊은 여운을 남기고, 비즈니스에는 실질적인 가치를 더하는 디자이너가 되고자 합니다.</p>
+                    <p>지금은 배움의 과정 속에 있지만, 성실함과 호기심을 무기로 저만의 창의적인 포트폴리오를 확장해 나가고 있습니다. 끊임없이 성장하며 더 넓은 세상과 소통하겠습니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="contact-box">
+            <h2>Let's Connect</h2>
+            <p>새로운 경험과 도전을 함께 할 파트너를 기다립니다.</p>
+            <div class="contact-info">
+                <a href="mailto:2026108038@hanyang.ac.kr">2026108038@hanyang.ac.kr</a>
+                <a href="mailto:gracehan878@gmail.com">gracehan878@gmail.com</a>
+            </div>
+        </div>
+        <div class="footer">
+            © 2026 Grace Han. New Media Design Portfolio. All Rights Reserved.
+        </div>
+    </div>
+
+</body>
+</html>
 
